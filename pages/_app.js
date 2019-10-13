@@ -17,10 +17,10 @@ class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props
     return (
-        <Container>
-            <p>_app.js file here</p>
+        // <Container>
+        //     <p>_app.js file here</p>
             <Component {...pageProps} />
-        </Container>
+        // </Container>
         // Warning: the `Container` in `_app` has been deprecated and should be removed. https://err.sh/zeit/next.js/app-container-deprecated
     )
   }
