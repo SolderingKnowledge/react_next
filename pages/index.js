@@ -34,10 +34,10 @@ const first = ({posts}) => {//const first = (props) => {
     // console.log(props.posts)
     return (
         <div>
-            {posts.map((item)=>{
+            {posts.map((item, i)=>{
                 return (
                     <Link href={`/blog?id=${item.id}`}>
-                        <button key={item.id}>{item.title}</button>
+                        <button key={i}>{item.title}</button>
                     </Link>
                 )
             })}
