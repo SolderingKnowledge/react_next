@@ -1,3 +1,5 @@
+import Axios from "axios"
+
 import React, {Component} from "react";
 class First extends Component {
     constructor(props){
@@ -6,26 +8,44 @@ class First extends Component {
 
     }
     static async getInitialProps(){
-        console.log("It is like componentWillMount()will execute on the server only for the first time");
-        //second time will only be executed on the client when navigating to a different via Link
-        //if you don't return object it usually complains that it returned 'undefined'
+        const response = await Axios.get("https://jsonplaceholder.typicode.com/posts")
+        const {data} = response;
+        return {posts:data}
     }
     render(){
+        const { posts } = this.props;
         return(
-            <div>Ok</div>
+            <div>
+                {posts.map( item => (
+                    <p key={item.id}>{item.title}</p>
+                )) }
+            </div>
         )
     }
 }
 export default First;
-// const first = () => {
+
+
+
+
+
+
+// const first = ({posts}) => {//const first = (props) => {
+//     // console.log(props.posts)
 //     return (
 //         <div>
-//             Function component
+//             {posts.map((item)=>{
+//                 return (
+//                     <p key={item.id}>{item.title}</p>
+//                 )
+//             })}
 //         </div>
 //     )
 // }
 // first.getInitialProps = async () => {
-//     console.log("Lifecycle")
+//     const response = await Axios.get("https://jsonplaceholder.typicode.com/posts")
+//     const {data} = response;
+//     return {posts:data}
 // }
 
 // export default first;
