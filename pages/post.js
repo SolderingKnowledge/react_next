@@ -26,15 +26,11 @@ import Link from "next/link";
 // export default First;
 
 
-
-
-
-
 const first = ({id, comments}) => {//const first = (props) => {
     // console.log(props.posts)
     return (
         <div>
-            <h1>Comments for id#{id}</h1>
+            <h1>Found id#{id}</h1>
             {comments.map((item)=>{
                 return (
                     <Comment {...item} key={item.id} />
