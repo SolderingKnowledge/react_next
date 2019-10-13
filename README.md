@@ -1,3 +1,5 @@
+Initial page rendered on the server and the consecutive pages are on the client
+
 1 `npm init -y`
 
 2 `npm i --save react react-dom next`
